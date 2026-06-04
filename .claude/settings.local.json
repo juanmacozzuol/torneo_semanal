@@ -3,7 +3,11 @@
     "allow": [
       "Bash(npm create *)",
       "Bash(npm install *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(node -e \"require\\('./node_modules/react-simple-maps/dist/index.js'\\); console.log\\('ok'\\)\")",
+      "Bash(rm -rf src/components/AuthModal.jsx src/components/PoliticianCard.jsx src/components/ProposalSection.jsx src/components/MapSection.jsx src/components/BoletinSidebar.jsx src/components/EvolutionSection.jsx src/components/ArgentinaMap.jsx src/components/ArcGauge.jsx src/components/CategoryVote.jsx src/components/NewsPanel.jsx src/components/Sparkline.jsx)",
+      "Bash(rm -rf src/hooks/useAuth.js src/hooks/useVotes.js src/hooks/usePoliticians.js src/hooks/useProposals.js src/hooks/useProvinceVotes.js src/hooks/useNews.js src/hooks/useBoletin.js src/hooks/useSnapshots.js src/hooks/useAllSnapshots.js src/hooks/useIsMobile.js)",
+      "Bash(rm -rf src/data)"
     ]
   }
 }

@@ -1,85 +1,112 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0d0d14;
+  --surface: #13131e;
+  --border: #1e1e2e;
+  --border-light: #252535;
+  --text: #e8e8e8;
+  --text-muted: #666;
+  --text-dim: #999;
+  --accent: #3b5bdb;
+  --accent-hover: #4f6ef7;
+  --danger: #e03131;
+  --success: #2f9e44;
+  --radius: 8px;
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
-  background: #0f0f13;
-  color: #e8e8e8;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
   min-height: 100vh;
 }
 
-#root {
-  min-height: 100vh;
-}
+#root { min-height: 100vh; }
 
-/* Scrollbar */
+button { cursor: pointer; font-family: inherit; font-size: inherit; border: none; outline: none; }
+input, select, textarea { font-family: inherit; font-size: inherit; outline: none; }
+a { color: var(--accent-hover); text-decoration: none; }
+
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #0f0f13; }
-::-webkit-scrollbar-thumb { background: #252535; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #333350; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
 
-/* Card hover */
-.pol-card {
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.pol-card:hover {
-  border-color: #333350 !important;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
-}
+button:active { opacity: 0.8; }
 
-/* News article hover */
-.news-article:hover {
-  border-color: #333350 !important;
+.btn-primary {
+  padding: 0.5rem 1.2rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: background 0.15s;
 }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
 
-/* Boletin item hover */
-.boletin-item:hover {
-  border-color: #333350 !important;
+.btn-secondary {
+  padding: 0.45rem 1rem;
+  background: none;
+  border: 1px solid var(--border-light);
+  color: var(--text-dim);
+  border-radius: var(--radius);
+  transition: border-color 0.15s, color 0.15s;
 }
+.btn-secondary:hover { border-color: var(--accent); color: var(--text); }
 
-/* Input / select focus ring */
-input:focus, select:focus {
-  outline: 1.5px solid #3b5bdb;
-}
-
-/* Button active press */
-button:active {
-  opacity: 0.8;
-}
-
-/* Smooth transitions for interactive elements */
-a, button, select, input {
-  transition: opacity 0.15s, border-color 0.15s, color 0.15s;
+.btn-danger {
+  padding: 0.45rem 1rem;
+  background: var(--danger);
+  color: #fff;
+  border-radius: var(--radius);
+  font-weight: 600;
 }
 
-/* Mobile layout overrides */
-@media (max-width: 768px) {
-  .app-columns {
-    flex-direction: column !important;
-  }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
 
-  .app-header-user {
-    gap: 0.5rem !important;
-  }
+.input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+}
+.input:focus { border-color: var(--accent); }
 
-  .app-prov-select {
-    display: none;
-  }
+.page { min-height: 100vh; display: flex; flex-direction: column; }
 
-  .app-email {
-    display: none;
-  }
+header.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-  .boletin-aside {
-    width: 100% !important;
-    position: static !important;
-    max-height: none !important;
-  }
+header.site-header h1 { font-size: 1rem; font-weight: 700; letter-spacing: 0.01em; }
 
-  .app-main {
-    padding: 1rem !important;
-  }
+main.site-main {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  main.site-main { padding: 1rem; }
+  header.site-header { padding: 0.75rem 1rem; }
 }
